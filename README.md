@@ -12,9 +12,18 @@ To use it, send `tbsSelect` instead of `select` to the HTML canvas.
     list: Object subclasses
 ```
 
+# Installation
+
+```smalltalk
+Metacello new 
+  baseline: 'BootstrapSelect'; 
+  repository: 'github://eMaringolo/seaside-bootstrap-select/src';
+  load.
+```
+
 # More examples
 
-There is a `Bootstrap-Select-Examples` package that autoinitializes a browser application at `/boostrap-select` of your default Seaside dispatcher.
+There is a `Bootstrap-Select-Examples` package that autoinitializes a browser application at `/boostrap-select` in your default Seaside dispatcher (typically `http://localhost:8080/bootstrap-select`).
 
 
 
