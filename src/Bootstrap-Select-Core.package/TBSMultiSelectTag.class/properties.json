@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "WAMultiSelectTag",
+	"category" : "Bootstrap-Select-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"autoinitialize"
+	],
+	"name" : "TBSMultiSelectTag",
+	"type" : "normal"
+}

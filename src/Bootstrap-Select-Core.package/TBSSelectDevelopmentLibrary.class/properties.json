@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "TBSSelectLibrary",
+	"category" : "Bootstrap-Select-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "TBSSelectDevelopmentLibrary",
+	"type" : "normal"
+}

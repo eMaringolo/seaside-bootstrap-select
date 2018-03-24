@@ -1,0 +1,4 @@
+configuration
+showGroups
+	
+	usesGroups := true

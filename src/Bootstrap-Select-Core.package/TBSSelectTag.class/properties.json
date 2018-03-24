@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "",
+	"super" : "WASelectTag",
+	"category" : "Bootstrap-Select-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"classBlock",
+		"styleBlock",
+		"autoinitialize",
+		"subtextsBlock",
+		"options",
+		"usesGroups",
+		"groupsBlock"
+	],
+	"name" : "TBSSelectTag",
+	"type" : "normal"
+}
