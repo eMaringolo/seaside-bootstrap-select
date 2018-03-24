@@ -23,7 +23,7 @@ Metacello new
 
 # More examples
 
-There is a `Bootstrap-Select-Examples` package that autoinitializes a browser application at `/boostrap-select` in your default Seaside dispatcher (typically `http://localhost:8080/bootstrap-select`).
+There is a `Bootstrap-Select-Examples` package that autoinitializes a browser application at `/bootstrap-select` in your default Seaside dispatcher (typically `http://localhost:8080/bootstrap-select`).
 
 
 
