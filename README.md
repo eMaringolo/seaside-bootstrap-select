@@ -1,6 +1,8 @@
 # seaside-bootstrap-select
 Seaside integration (canvas, plugin and options) of Bootstrap-Select (https://github.com/silviomoreto/bootstrap-select) plugin
 
+![Screenshot](/example.gif?raw=true "Example")
+
 
 # Simple use
 
@@ -11,7 +13,6 @@ To use it, send `tbsSelect` instead of `select` to the HTML canvas.
   html tbsSelect
     list: Object subclasses
 ```
-
 # Installation
 
 ```smalltalk
