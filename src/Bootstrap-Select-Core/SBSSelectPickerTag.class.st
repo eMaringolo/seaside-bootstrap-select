@@ -1,5 +1,5 @@
 Class {
-	#name : #TBSSelectTag,
+	#name : #SBSSelectPickerTag,
 	#superclass : #WASelectTag,
 	#instVars : [
 		'classBlock',
@@ -14,46 +14,46 @@ Class {
 }
 
 { #category : #private }
-TBSSelectTag >> after [
+SBSSelectPickerTag >> after [
 	
 	self autoinitialize ifTrue: [self initializationScriptUsing: canvas]
 ]
 
 { #category : #accessing }
-TBSSelectTag >> autoinitialize [
+SBSSelectPickerTag >> autoinitialize [
 	
 	^autoinitialize
 ]
 
 { #category : #accessing }
-TBSSelectTag >> autoinitialize: anObject [
+SBSSelectPickerTag >> autoinitialize: anObject [
 	
 	autoinitialize := anObject
 ]
 
 { #category : #configuration }
-TBSSelectTag >> beExtraSmall [
+SBSSelectPickerTag >> beExtraSmall [
 	"Configures receiver to use extra small buttons."
 	
 	self optionAt: 'styleBase' put: 'btn btn-xs'
 ]
 
 { #category : #configuration }
-TBSSelectTag >> beLarge [
+SBSSelectPickerTag >> beLarge [
 	"Configures receiver to use large buttons."
 	
 	self optionAt: 'styleBase' put: 'btn btn-lg'
 ]
 
 { #category : #configuration }
-TBSSelectTag >> beSmall [
+SBSSelectPickerTag >> beSmall [
 	"Configures receiver to use small buttons."
 	
 	self optionAt: 'styleBase' put: 'btn btn-sm'
 ]
 
 { #category : #private }
-TBSSelectTag >> before [
+SBSSelectPickerTag >> before [
 	
 	self isOptional ifTrue: [self renderOptional].
 	self hasList
@@ -67,7 +67,7 @@ TBSSelectTag >> before [
 ]
 
 { #category : #private }
-TBSSelectTag >> classFor: anObject [
+SBSSelectPickerTag >> classFor: anObject [
 	
 	^classBlock isNil
 		ifTrue: [anObject]
@@ -75,41 +75,46 @@ TBSSelectTag >> classFor: anObject [
 ]
 
 { #category : #accessing }
-TBSSelectTag >> classes: aBlock [
+SBSSelectPickerTag >> classes: aBlock [
 	
 	classBlock := aBlock
 ]
 
+{ #category : #private }
+SBSSelectPickerTag >> container: anObject [ 
+	
+	self optionAt: 'container' put: anObject
+]
+
 { #category : #accessing }
-TBSSelectTag >> groups: aBlock [
+SBSSelectPickerTag >> groups: aBlock [
 	
 	groupsBlock := aBlock
 ]
 
 { #category : #configuration }
-TBSSelectTag >> hasGroups [
+SBSSelectPickerTag >> hasGroups [
 	"Note: we test for #isSequenceable, because GRSmallDictionary returns false to #isDictionary."
 	
 	^self list isSequenceable not
 ]
 
 { #category : #testing }
-TBSSelectTag >> hasList [
+SBSSelectPickerTag >> hasList [
 	
 	^list notNil and: [list isEmpty not]
 ]
 
 { #category : #attributes }
-TBSSelectTag >> header: aString [
+SBSSelectPickerTag >> header: aString [
 	
 	self dataAt: 'header' put: aString
 ]
 
 { #category : #initialization }
-TBSSelectTag >> initializationScriptUsing: aCanvas [
+SBSSelectPickerTag >> initializationScriptUsing: aCanvas [
 	
-	aCanvas
-		script:
+	aCanvas document scriptGenerator addLoadScript:
 			(String
 				streamContents:
 					[:s | 
@@ -122,7 +127,7 @@ TBSSelectTag >> initializationScriptUsing: aCanvas [
 ]
 
 { #category : #'initialize-release' }
-TBSSelectTag >> initialize [
+SBSSelectPickerTag >> initialize [
 	
 	super initialize.
 	autoinitialize := true.
@@ -130,19 +135,19 @@ TBSSelectTag >> initialize [
 ]
 
 { #category : #initializing }
-TBSSelectTag >> initializeOptions [
+SBSSelectPickerTag >> initializeOptions [
 	
 	options := GRSmallDictionary new
 ]
 
 { #category : #private }
-TBSSelectTag >> labelForGroup: group [
+SBSSelectPickerTag >> labelForGroup: group [
 	
 	^groupsBlock value: group
 ]
 
 { #category : #accessing }
-TBSSelectTag >> list: aCollection [
+SBSSelectPickerTag >> list: aCollection [
 	"Append aCollection of items to display. The rendering can be customized using #labels:."
 	
 	list isNil
@@ -151,7 +156,7 @@ TBSSelectTag >> list: aCollection [
 ]
 
 { #category : #options }
-TBSSelectTag >> optionAt: aKey [
+SBSSelectPickerTag >> optionAt: aKey [
 	
 	^self options
 		at: aKey
@@ -159,7 +164,7 @@ TBSSelectTag >> optionAt: aKey [
 ]
 
 { #category : #options }
-TBSSelectTag >> optionAt: aKey put: aValue [
+SBSSelectPickerTag >> optionAt: aKey put: aValue [
 	
 	^self options
 		at: aKey asString
@@ -167,13 +172,13 @@ TBSSelectTag >> optionAt: aKey put: aValue [
 ]
 
 { #category : #private }
-TBSSelectTag >> options [
+SBSSelectPickerTag >> options [
 	
 	^options ifNil: [self initializeOptions]
 ]
 
 { #category : #private }
-TBSSelectTag >> renderGroup: group items: items [
+SBSSelectPickerTag >> renderGroup: group items: items [
 	
 	(canvas optionGroup)
 		label:
@@ -184,7 +189,7 @@ TBSSelectTag >> renderGroup: group items: items [
 ]
 
 { #category : #'rendering-private' }
-TBSSelectTag >> renderListItem: anObject labelled: aString [
+SBSSelectPickerTag >> renderListItem: anObject labelled: aString [
 	
 	| option |
 	option := canvas option.
@@ -208,7 +213,7 @@ TBSSelectTag >> renderListItem: anObject labelled: aString [
 ]
 
 { #category : #'rendering-private' }
-TBSSelectTag >> renderListItems: items [
+SBSSelectPickerTag >> renderListItems: items [
 	
 	items
 		do:
@@ -219,31 +224,31 @@ TBSSelectTag >> renderListItems: items [
 ]
 
 { #category : #configuration }
-TBSSelectTag >> selectOnTab [
+SBSSelectPickerTag >> selectOnTab [
 	
 	self optionAt: 'selectOnTab' put: 'true'
 ]
 
 { #category : #configuration }
-TBSSelectTag >> showGroups [
+SBSSelectPickerTag >> showGroups [
 	
 	usesGroups := true
 ]
 
 { #category : #configuration }
-TBSSelectTag >> showSubtext [
+SBSSelectPickerTag >> showSubtext [
 	
 	self attributeAt: 'data-show-subtext' put: true
 ]
 
 { #category : #configuration }
-TBSSelectTag >> showTick [
+SBSSelectPickerTag >> showTick [
 	
 	self class: 'show-tick'
 ]
 
 { #category : #private }
-TBSSelectTag >> styleFor: anObject [
+SBSSelectPickerTag >> styleFor: anObject [
 	
 	^styleBlock isNil
 		ifTrue: [anObject]
@@ -251,13 +256,13 @@ TBSSelectTag >> styleFor: anObject [
 ]
 
 { #category : #accessing }
-TBSSelectTag >> styles: aBlock [
+SBSSelectPickerTag >> styles: aBlock [
 	
 	styleBlock := aBlock
 ]
 
 { #category : #private }
-TBSSelectTag >> subtextFor: anObject [
+SBSSelectPickerTag >> subtextFor: anObject [
 	
 	^subtextsBlock isNil
 		ifTrue: [anObject asString]
@@ -265,19 +270,19 @@ TBSSelectTag >> subtextFor: anObject [
 ]
 
 { #category : #accessing }
-TBSSelectTag >> subtexts: aBlock [
+SBSSelectPickerTag >> subtexts: aBlock [
 	
 	subtextsBlock := aBlock
 ]
 
 { #category : #options }
-TBSSelectTag >> usesGroups [
+SBSSelectPickerTag >> usesGroups [
 	
 	^usesGroups ifNil: [usesGroups := self hasGroups]
 ]
 
 { #category : #'accessing-attributes' }
-TBSSelectTag >> width: aString [
+SBSSelectPickerTag >> width: aString [
 	
 	self dataAt: 'width' put: aString
 ]

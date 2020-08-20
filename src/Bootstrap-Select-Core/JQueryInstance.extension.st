@@ -3,5 +3,5 @@ Extension { #name : #JQueryInstance }
 { #category : #'*Bootstrap-Select-Core' }
 JQueryInstance >> selectPicker [
 	
-	^ self create: TBSSelectPicker 
+	^ self create: SBSSelectPicker 
 ]

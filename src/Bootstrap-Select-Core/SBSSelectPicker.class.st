@@ -1,11 +1,11 @@
 Class {
-	#name : #TBSSelectPicker,
+	#name : #SBSSelectPicker,
 	#superclass : #JQPlugin,
 	#category : #'Bootstrap-Select-Core'
 }
 
 { #category : #accessing }
-TBSSelectPicker >> method [
+SBSSelectPicker >> method [
 	
 	^'selectpicker'
 ]
