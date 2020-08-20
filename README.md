@@ -10,7 +10,7 @@ To use it, send `tbsSelect` instead of `select` to the HTML canvas.
 
 ```smalltalk
 
-  html tbsSelect
+  html sbsSelect
     list: Object subclasses
 ```
 
@@ -21,7 +21,7 @@ To use it, send `tbsSelect` instead of `select` to the HTML canvas.
 ```smalltalk
 Metacello new 
   baseline: 'BootstrapSelect'; 
-  repository: 'github://eMaringolo/seaside-bootstrap-select/src';
+  repository: 'github://eMaringolo/seaside-bootstrap-select:bootstrap4/src';
   load.
 ```
 
