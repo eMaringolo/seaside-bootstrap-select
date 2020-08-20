@@ -1,5 +1,8 @@
 # seaside-bootstrap-select
 [Seaside](https://github.com/SeasideSt/Seaside) integration (canvas, plugin and options) for the [Bootstrap-Select plugin](https://github.com/snapappointments/bootstrap-select)
+_to be used with [Bootstrap 4](https://github.com/astares/Seaside-Bootstrap4)_.
+
+For [Bootstrap 3 integration](https://github.com/astares/Seaside-Bootstrap) please check the [Bootstrap 3](https://github.com/eMaringolo/seaside-bootstrap-select/tree/bootstrap3)
 
 # Simple use
 
