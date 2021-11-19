@@ -113,17 +113,11 @@ SBSSelectPickerTag >> header: aString [
 
 { #category : #initialization }
 SBSSelectPickerTag >> initializationScriptUsing: aCanvas [
-	
-	aCanvas document scriptGenerator addLoadScript:
-			(String
-				streamContents:
-					[:s | 
-					s
-						nextPutAll: '$("#';
-						nextPutAll: (attributes at: 'id');
-						nextPutAll: '").selectpicker('.
-					self options isEmpty ifFalse: [self options javascriptOn: s].
-					s nextPutAll: ');'])
+	aCanvas document scriptGenerator
+		addLoadScript:
+			((aCanvas jQuery id: (attributes at: 'id'))
+				call: 'selectpicker'
+				with: options)
 ]
 
 { #category : #'initialize-release' }
