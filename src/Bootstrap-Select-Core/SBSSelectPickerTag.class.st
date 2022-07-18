@@ -112,10 +112,18 @@ SBSSelectPickerTag >> header: aString [
 ]
 
 { #category : #initialization }
+SBSSelectPickerTag >> initializationScriptOn: aCanvas [
+
+	^ (aCanvas jQuery id: (attributes at: 'id'))
+		  call: 'selectpicker'
+		  with: options
+]
+
+{ #category : #initialization }
 SBSSelectPickerTag >> initializationScriptUsing: aCanvas [
 
 	aCanvas document scriptGenerator addLoadScript:
-		(self scriptInitializationOn: aCanvas)
+		(self initializationScriptOn: aCanvas)
 ]
 
 { #category : #'initialize-release' }
@@ -218,9 +226,7 @@ SBSSelectPickerTag >> renderListItems: items [
 { #category : #initialization }
 SBSSelectPickerTag >> scriptInitializationOn: aCanvas [
 
-	^ (aCanvas jQuery id: (attributes at: 'id'))
-		  call: 'selectpicker'
-		  with: options
+	aCanvas << (self initializationScriptOn: aCanvas)
 ]
 
 { #category : #configuration }
